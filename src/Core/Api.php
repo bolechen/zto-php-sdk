@@ -16,7 +16,6 @@ use Hanson\Foundation\AbstractAPI;
 class Api extends AbstractAPI
 {
     const API_URL = 'http://japi.zto.cn';
-    const SANDBOX_API_URL = 'http://58.40.16.122:8080';
 
     // 以下信息获取地址 https://zop.zto.com/userCenter/userBaseInfo
     // 合作商编码(company_id)
@@ -34,14 +33,8 @@ class Api extends AbstractAPI
         $this->apiCompanyId = $config['apiCompanyId'];
         $this->apiKey = $config['apiKey'];
 
-        // 测试 api 地址会变化，有配置就优先用配置文件
-        $sandboxApiUrl = static::SANDBOX_API_URL;
-        if (!empty($_ENV['ZTO_SANDBOX_URL'])) {
-            $sandboxApiUrl = $_ENV['ZTO_SANDBOX_URL'];
-        }
-
         // 沙盒环境
-        $this->apiUrl = (isset($config['sandbox']) && $config['sandbox']) ? $sandboxApiUrl : static::API_URL;
+        $this->apiUrl = (isset($config['sandbox']) && $config['sandbox']) ? $config['sandbox_url'] : static::API_URL;
     }
 
     public function __call($method, $args)
