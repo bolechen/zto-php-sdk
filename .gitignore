@@ -1,0 +1,6 @@
+*.DS_Store
+.php_cs.cache
+.subsplit
+/coverage
+/vendor
+tests/*.log
