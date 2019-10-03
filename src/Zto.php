@@ -10,6 +10,7 @@
 
 namespace Bolechen\Zto;
 
+use Bolechen\Zto\Core\ServiceProvider;
 use Hanson\Foundation\Foundation;
 
 /**
