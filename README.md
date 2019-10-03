@@ -1,5 +1,9 @@
 # 中通快递开放平台 sdk for php，非官方维护
 
+[![Build Status](https://travis-ci.org/bolechen/zto-php-sdk.svg?branch=master)](https://travis-ci.org/bolechen/zto-php-sdk)
+[![Latest Stable Version](https://poser.pugx.org/bolechen/zto-php-sdk/v/stable)](https://packagist.org/packages/bolechen/zto-php-sdk)
+[![License](https://poser.pugx.org/bolechen/zto-php-sdk/license)](https://packagist.org/packages/bolechen/zto-php-sdk)
+
 官方 api 文档参见：https://zop.zto.com/apiDoc/
 
 - Base on [hanson/foundation-sdk](https://github.com/HanSon/foundation-sdk) 
