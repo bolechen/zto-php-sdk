@@ -9,11 +9,12 @@
  */
 
 return [
-    'apiCompanyId' => env('ZTO_API_COMPANY_ID', 'kfpttestCode'),
-    'apiKey' => env('ZTO_API_KEY', 'kfpttestkey=='),
+    'apiCompanyId' => 'kfpttestCode',
+    'apiKey' => 'kfpttestkey==',
 
-    'sandbox' => env('ZTO_SANDBOX', false), // 沙盒
-    'debug' => env('ZTO_DEBUG', false),
+    'sandbox' => true,
+    'sandbox_url' => 'http://58.40.16.122:8080',
+    'debug' => true,
 
     'log' => [
         'name' => 'zto',

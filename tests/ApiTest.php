@@ -12,6 +12,8 @@ namespace Bolechen\Zto;
 
 use PHPUnit\Framework\TestCase;
 
+require 'helper.php';
+
 /**
  * @internal
  * @covers \Bolechen\Zto\Api\Base
@@ -28,9 +30,6 @@ class ApiTest extends TestCase
     {
         parent::setUp();
 
-        $dotenv = \Dotenv\Dotenv::create(__DIR__);
-        $dotenv->load();
-
         $config = require 'config.php';
         $this->zto = new Zto($config);
     }
@@ -38,10 +37,14 @@ class ApiTest extends TestCase
     // 沙盒开关
     private function setSandBox(bool $flag, $sanboxUrl = '')
     {
-        $_ENV['ZTO_SANDBOX'] = $flag;
-        $_ENV['ZTO_SANDBOX_URL'] = $sanboxUrl;
+        $config = require 'config.php';
 
-        $this->setUp();
+        $config['sandbox'] = $flag;
+        if ($sanboxUrl) {
+            $config['sandbox_url'] = $sanboxUrl;
+        }
+
+        $this->zto = new Zto($config);
     }
 
     /**
