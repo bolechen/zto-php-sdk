@@ -114,6 +114,8 @@ class ApiTest extends TestCase
 
     public function test_partnerInsertSubmitagent()
     {
+        $this->markTestSkipped('官方测试 api 打不开');
+
         $this->setSandBox(true, 'http://58.40.16.120:9001');
         $data['data'] = '{"partner": "test","id": "xfs101100111011","type": "","tradeid": "2701843","sender": {"id": "131*****010","name": "XXX","company": "XXXXX有限公司","mobile": "1391***5678","phone": "021-87***321","area": "310118","city": "上海,上海市,青浦区","address": "华新镇华志路XXX号","zipcode": "610012","email": "ll@abc.com","im": "1924656234","starttime": "2013-05-20 12:00:00","endtime": "2013-05-20 15:00:00"    },    "receiver": {"id": "130520142097","name": "XXX","company": "XXXX有限公司","mobile": "136*****321","phone": "010-222***89","area": "501022","city": "四川省,XXX,XXXX","address": "育德路XXX号","zipcode": "610012","email": "yyj@abc.com","im": "yangyijia-abc"    },    "weight": "0.753",    "size": "12,23,11",    "quantity": "2",    "price": "126.50",    "freight": "10.00",    "premium": "0.50",    "pack_charges": "1.00",    "other_charges": "0.00",    "order_sum": "0.00",    "collect_moneytype": "CNY",    "collect_sum": "12.00",    "remark": "请勿摔货",    "order_type": "1"}';
 
@@ -132,8 +134,8 @@ class ApiTest extends TestCase
 
         $response = $this->zto->trace->traceInterfaceNewTraces($data);
         // dump($response);
-        $this->assertCount(1, $response['data']);
-        $this->assertSame('680000000000', $response['data'][0]['billCode']);
+        $this->assertCount(2, $response['data']);
+        $this->assertSame('680000000001', $response['data'][0]['billCode']);
     }
 
     public function test_traceInterfaceLatest()
