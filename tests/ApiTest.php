@@ -132,8 +132,8 @@ class ApiTest extends TestCase
 
         $response = $this->zto->trace->traceInterfaceNewTraces($data);
         // dump($response);
-        $this->assertCount(1, $response['data']);
-        $this->assertSame('680000000000', $response['data'][0]['billCode']);
+        $this->assertCount(2, $response['data']);
+        $this->assertSame('680000000001', $response['data'][0]['billCode']);
     }
 
     public function test_traceInterfaceLatest()
